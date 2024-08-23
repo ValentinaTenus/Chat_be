@@ -1,0 +1,1 @@
+export { senderRole } from "./user-role.enum.js";
