@@ -2,7 +2,6 @@ import { Response } from "express";
 
 import { type AuthenticatedRequest } from "~/middleware/auth-middleware.js";
 
-import { UserRepository } from "./user.repository.js";
 import { UserService } from "./user.service.js";
 
 export class UserController {
@@ -12,9 +11,9 @@ export class UserController {
     this.userService = new UserService();
   }
 
-  public getUserProfile = async (req: AuthenticatedRequest, res: Response): Promise<void> => {
+  public getCurrentUser = async (req: AuthenticatedRequest, res: Response): Promise<void> => {
     try {
-      const userId = req.user.id;
+      const { userId } = req.user;
       const user = await this.userService.findById(userId);
       if (!user) {
         res.status(404).json({ message: "User not found" });

@@ -22,7 +22,7 @@ const authenticateJWT = (req: AuthenticatedRequest, res: Response, next: NextFun
         return res.sendStatus(403);
       }
 
-      if (typeof user === "object" && "id" in user) {
+      if (typeof user === "object" && "userId" in user) {
         req.user = user as JwtPayloadWithId; 
         next();
       } else {

@@ -16,7 +16,7 @@ app.use("/auth", authRoutes);
 app.use("/chats", chatRoutes);
 app.use("/chat-messages", chatMessagesRoutes);
 app.use("/oauth", oAuthRoutes);
-app.use("/user", userRoutes);
+app.use("/users", userRoutes);
 
 const server = http.createServer(app);
 
