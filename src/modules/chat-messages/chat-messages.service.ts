@@ -13,6 +13,10 @@ class ChatMessageService {
     return this.chatMessagesRepository.create(messageData);
   }
 
+  async updateMessage(id: string, messageData: Partial<IMessage>): Promise<IMessage> {
+    return this.chatMessagesRepository.update(id, messageData);
+  }
+
 }
 
 const chatMessageService = new ChatMessageService(chatMessagesRepository);

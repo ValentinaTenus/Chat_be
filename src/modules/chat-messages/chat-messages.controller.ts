@@ -10,12 +10,26 @@ class ChatMessagesController {
   }
 
   async createChatMessage(req: Request, res: Response): Promise<void> {
-    console.log('create mess', req.body)
     try {
       const newMessage = await this.chatMessageService.createMessage(req.body);
       res.status(201).json(newMessage);
     } catch (error) {
       res.status(500).json({ message: "Error creating message", error });
+    }
+  }
+
+  async updateChatMessage(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const updatedMessage = await this.chatMessageService.updateMessage(id, req.body);
+      
+      if (updatedMessage) {
+        res.status(200).json(updatedMessage);
+      } else {
+        res.status(404).json({ message: "Message not found" });
+      }
+    } catch (error) {
+      res.status(500).json({ message: "Error updating message", error });
     }
   }
 }

@@ -8,13 +8,16 @@ class ChatMessagesRepository {
   async create(messageData: Partial<IMessage>): Promise<IMessage> {
     try {
       const createdMessage = await Message.create(messageData);
-      console.log(createdMessage, 'createdMessage')
 
       return createdMessage;
     } catch (error) {
       console.error("Error creating message:", error);
       throw error;
     }
+  }
+
+  async update(id: string, messageData: Partial<IMessage>): Promise<IMessage | null> {
+    return Message.findByIdAndUpdate(id, messageData, { new: true });
   }
 }
 

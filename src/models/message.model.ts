@@ -1,9 +1,6 @@
 import mongoose, { Connection, Schema } from "mongoose";
-import { v4 as uuidv4 } from "uuid";
 
 import { senderRole } from "~/common/enums/user-role.enum.js";
-
-import { IChat } from "./chat.model.js";
 
 interface IMessage {
     senderRole: senderRole;
