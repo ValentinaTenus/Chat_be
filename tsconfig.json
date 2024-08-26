@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*"],
+  "include": ["src"],
   "exclude": ["node_modules"],
   "compilerOptions": {
       "target": "ESNext",
@@ -8,9 +8,9 @@
       "moduleResolution": "Node",
       "baseUrl": ".",
       "paths": {
-          "~/*": ["./src"]
+          "~/*": ["./src/*"]
       },
-      "outDir": "./build",
+      "outDir": "build",
       "skipLibCheck": true
   }
 }
