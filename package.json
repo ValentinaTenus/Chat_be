@@ -8,8 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon --exec node --trace-warnings --loader ts-paths-esm-loader src/index.ts",
     "build": "tsc && tsc-alias",
-    "start:prod": "node build/index.js",
-    "seed": "ts-node src/db/seeds.ts"
+    "start:prod": "node build/index"
   },
   "author": "",
   "license": "ISC",
