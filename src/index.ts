@@ -5,15 +5,18 @@ import express from "express";
 import { Server } from "socket.io";
 
 import { seedDatabase } from "./db/seeds.js";
-import { chatRoutes, chatMessagesRoutes} from "./routes/index.js";
+import { authRoutes, chatRoutes, chatMessagesRoutes,oAuthRoutes, userRoutes} from "./routes/index.js";
 
 const app = express();
 
 config();
 app.use(cors());
 app.use(express.json());
+app.use("/auth", authRoutes);
 app.use("/chats", chatRoutes);
 app.use("/chat-messages", chatMessagesRoutes);
+app.use("/oauth", oAuthRoutes);
+app.use("/user", userRoutes);
 
 const server = http.createServer(app);
 
