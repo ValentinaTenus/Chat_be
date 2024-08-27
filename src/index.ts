@@ -6,6 +6,7 @@ import { Server } from "socket.io";
 
 import { seedDatabase } from "./db/seeds.js";
 import { authRoutes, chatRoutes, chatMessagesRoutes,oAuthRoutes, userRoutes} from "./routes/index.js";
+import { setupSocket } from "./socket/socket.js";
 
 const app = express();
 
@@ -27,13 +28,7 @@ const io = new Server(server, {
     }
 });
 
-io.on("connection", (socket) => {
-    console.log("User connected", socket.id);
-
-    socket.on("disconnect", () => {
-        console.log("User disconnected", socket.id)
-    })
-})
+setupSocket(io);
 
 await seedDatabase();
 

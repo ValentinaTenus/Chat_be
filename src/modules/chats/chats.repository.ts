@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 import { Chat, IChat } from "../../models/chat.model.js";
 
 class ChatRepository {
+  async findAll(): Promise<IChat[]> {
+    return  Chat.find().exec();
+   }
 
   async findAllWithMessages(search?: string): Promise<IChat[]> {
     let matchStage = {};
