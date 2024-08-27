@@ -1,7 +1,7 @@
 import { Message, IMessage } from "~/models/message.model.js";
 
 class ChatMessagesRepository {
-  async findAllByChatId(): Promise<IMessage[]> {
+  async findAll(): Promise<IMessage[]> {
    return  Message.find().exec();
   }
 
